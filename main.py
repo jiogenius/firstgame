@@ -26,11 +26,14 @@ def main():
                 if event.key == pygame.K_d:
                     cam.move([10,0])
                 if event.key == pygame.K_a:
-                    cam.move([-10,0])
-
-        screen.blit(pygame.image.load(os.path.join(assetPath,"test.png"))
+                   cam.move([-10,0])
 
         screen.fill((255,255,255))
+
+        screen.blit(pygame.image.load(os.path.join(assetPath,"test.png")),(10,0))
+        pygame.display.flip()
+
+
 
 if __name__ == "__main__":
     main()
