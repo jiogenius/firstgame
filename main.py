@@ -13,7 +13,7 @@ cam = graphic.cam([0,0],"cam")
 GameObjects=[]
 
 def main():
-    global running
+    global running, screen, assetPath
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -28,10 +28,9 @@ def main():
                 if event.key == pygame.K_a:
                     cam.move([-10,0])
 
-        screen.fill((255,255,255))
+        screen.blit(pygame.image.load(os.path.join(assetPath,"test.png"))
 
-        for i in GameObjects:
-            pygame.draw()
+        screen.fill((255,255,255))
 
 if __name__ == "__main__":
     main()
