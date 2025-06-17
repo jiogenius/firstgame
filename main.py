@@ -1,6 +1,7 @@
 import os
-
 import pygame
+
+import GameComponent
 import graphic
 
 pygame.init()
@@ -10,7 +11,8 @@ running = True
 mainFolderPath = os.path.dirname(os.path.abspath(__file__))
 assetPath=os.path.join(mainFolderPath,"asset")
 cam = graphic.cam([0,0],"cam")
-GameObjects=[]
+Entities = []
+Blocks = [GameComponent.GameObject([0,0])]
 
 def main():
     global running, screen, assetPath
@@ -30,7 +32,7 @@ def main():
 
         screen.fill((255,255,255))
 
-        screen.blit(pygame.image.load(os.path.join(assetPath,"test.png")),(10,0))
+        cam.draw()
         pygame.display.flip()
 
 
