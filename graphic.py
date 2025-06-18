@@ -1,4 +1,5 @@
 import GameComponent
+import animation
 class cam:
     def __init__(self, Pos, name):
         self.Pos = Pos
@@ -14,15 +15,17 @@ class cam:
         DrawPos = [self.Pos[0] - Pos[0], self.Pos[1] - Pos[1]]
         screen.blit(toDraw, (DrawPos[0],DrawPos[1]))
 
-    def draw_object(self, screen, object):
-        if type(object)==GameComponent.Entity:
+    def draw(self, screen, object):
+        if type(object)==animation.animation:
+            self.draw_image(screen, object.get_current_image(), [0,0])
+        #if type(object)==GameComponent.Entity:
             #TODO:Entity클레스 만들기
-            self.draw_image(screen,object.get_current_image(), self.Pos)
-        if type(object)==GameComponent.Block:
+        #    self.draw_image(screen,object.get_current_image(), self.Pos)
+        #elif type(object)==GameComponent.Block:
             #TODO:Block클레스 만들기
-            self.draw_image(screen,object.get_current_image(), self.Pos)
-        else:
-            raise TypeError
+        #    self.draw_image(screen,object.get_current_image(), self.Pos)
+        #else:
+        #    raise TypeError
 
     def ScreenClickPos_to_WorldClickPos(self, ScreenClickPos):
         WorldClickPos = [ScreenClickPos[0] + self.Pos[0], ScreenClickPos[1] + self.Pos[1]]
