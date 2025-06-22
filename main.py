@@ -16,6 +16,7 @@ Entities = []
 Blocks = [GameComponent.GameObject([0,0])]
 clock = pygame.time.Clock()
 FPS = 60  # 고정할 FPS 값
+test = animation.animation(pygame.image.load(os.path.join(assetPath,"test_animation.png")),32,20)
 
 def main():
     global running, screen, assetPath, clock ,FPS
@@ -35,10 +36,8 @@ def main():
 
         screen.fill((255,255,255))
 
-        cam.draw(screen, animation.animation(pygame.image.load(os.path.join(assetPath,"test_animation.png")),32,20))
-        font = pygame.font.SysFont(None, 30)
-        fps_text = font.render(f"FPS: {int(clock.get_fps())}", True, (255, 255, 255))
-        screen.blit(fps_text, (10, 10))
+        cam.draw(screen, test)
+        test.next()
 
         pygame.display.flip()
 
