@@ -13,9 +13,11 @@ class cam:
     def move(self, Pos):
         self.Pos = [self.Pos[0] + Pos[0], self.Pos[1] + Pos[1]]
 
-    def draw_image(self, screen, toDraw, Pos):
+    def draw_image(self, surface, toDraw, Pos):
         DrawPos = [self.Pos[0] - Pos[0], self.Pos[1] - Pos[1]]
-        screen.blit(toDraw, (DrawPos[0],DrawPos[1]))
+        if DrawPos[0] >10000 or DrawPos[1] >8000:
+            return
+        surface.blit(toDraw, (DrawPos[0],DrawPos[1]))
 
     def draw(self, screen, object):
         if type(object)==animation.animation:
