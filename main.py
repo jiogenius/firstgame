@@ -17,9 +17,8 @@ Entities = []
 Blocks = [GameComponent.GameObject([0,0])]
 clock = pygame.time.Clock()
 FPS = 60  # 고정할 FPS 값
-imageManager = graphic.imageManager(assetPath)
-imageManager=load_function.load(imageManager)
-test = animation.animation(imageManager.get_image("test2",2),128,10)
+load_function.load()
+test = animation.animation("test2",128,10)
 
 def main():
     global running, screen, assetPath, clock ,FPS
