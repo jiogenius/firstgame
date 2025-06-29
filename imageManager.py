@@ -1,5 +1,6 @@
 import pygame
 import os
+
 mainFolderPath = os.path.dirname(os.path.abspath(__file__))
 assetPath=os.path.join(mainFolderPath,"asset")
 class ImageManager:

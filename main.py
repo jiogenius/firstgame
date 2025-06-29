@@ -20,6 +20,7 @@ clock = pygame.time.Clock() # 클럭 정의
 FPS = 60  # 고정할 FPS 값
 load_function.load() # 에셋 로드
 test = animation.animation("test2",128,10) # 애니메이션 객체 생성
+test2 = animation.animation("image",128,10) # 두번째 애니메이션 객체 생성
 
 def main():
     global running, screen, assetPath, clock ,FPS
@@ -44,10 +45,11 @@ def main():
 #                elif event.y < 0 and zoom > zoom_step:
 #                    zoom -= zoom_step
 
-        screen.fill((255,255,255))
+        screen.fill((255,255,255)) # 화면 초기화
 
-        cam.draw(screen, test)
+        cam.draw(screen, test2)
         test.next()
+        test2.next()
 
         pygame.display.flip()
 

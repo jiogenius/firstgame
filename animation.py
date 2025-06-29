@@ -14,6 +14,5 @@ class animation:
             self.cin=0
             self.curser=0
 
-
     def get_current_image(self):
         return imageManager.imagemanager.get_image(self.image,2)[self.cin]
