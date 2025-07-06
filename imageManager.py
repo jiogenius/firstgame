@@ -15,9 +15,7 @@ class ImageManager:
     def preload_animation_image(self, filename, height, name=None):
         images = []
         image= pygame.image.load(os.path.join(self.assetPath, filename))
-        print(range(0, image.get_width(), height))
         for i in range(0, image.get_height(), height):
-            print(0.0, float(i), float(image.get_width()), float(height))
             tmp_image = image.subsurface(pygame.Rect(0.0, float(i), float(image.get_width()), float(height)))
             images.append(tmp_image)
         if name is None:
