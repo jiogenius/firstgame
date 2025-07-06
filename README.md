@@ -12,7 +12,10 @@
   #load_function.py에 써야하는 코드
   load():
     #이미 있는 코드
-    
+    imageManager.imagemanager.preload_general_image("asset/에 있는 이미지 이름", "코딩할때 쓸 이미지 이름")
+    #예시
+    imageManager.imagemanager.preload_general_image("player.png", "player")
+    imageManager.imagemanager.preload_general_image("jio_is_genius.png", "very_good_image")
 ```
 ```python
   #이미지를 로드할 코드 파일
@@ -24,5 +27,7 @@
 
   image=imageManager.load("이미지 이름")
   #여기서 로드된 이미지를 지역변수(생성되었다가 곧 사라지는 변수) 에 저장 하기!!!!
+  #예시
+  jiogenius = imageManager.imagemanager.load("very_good_image")
    
 ```
