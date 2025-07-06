@@ -52,3 +52,4 @@ class Entity(GameObject):
 
 class Block(GameObject):
     pass
+
