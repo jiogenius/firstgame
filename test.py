@@ -5,7 +5,6 @@ class garden:
         self.stock = seed
     def restock(self):
         print(self.stock)
-    def power_of_robux(self):
-        
+
 ike = garden(seedlist[random.randint(0,3)])
 ike.restock()
