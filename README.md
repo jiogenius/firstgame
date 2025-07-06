@@ -7,7 +7,9 @@
 1. block class 만들기 (<-이상곤이 해야하는거)
   - GameObject를 상속하기-완료 체크(v)
   - images변수 만들어서 거기에 이미지 이름을 넣고 로드해서 사용하기-완료 체크()
-  - status = [0,{}] #[0<--health,{}<-other property] 처럼 상태 저장하기 
+  - status = [0,{}] #[0<--health,{}<-other property] 처럼 상태 저장하기
+  - frame 함수 비워두기
+  - get_current_image 함수로 혀네 이미지 가져오기
 2. cam class 완성하기(줌기능 완성, <-내가 할꺼)
   - zoom구현-완료 체크()
   - 카메라 위치 따라서 이미지 이동-완료 체크(v)
