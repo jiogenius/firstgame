@@ -10,5 +10,4 @@ class Dog:
     def sayname(self):
         print(f"My name is {self.name}")
 
-testDog = Dog("댕댕2")
-testDog.sayname()
+
