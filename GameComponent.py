@@ -25,7 +25,11 @@ class Entity(GameObject):
         self.animations = []
         self.status = [0,{}] #[0<--health,{}<-other property]
     def frame(self):
-        self.move
+        friction = 0
+        self.move(self.speed)
+        if self.speed[0] != 0 or self.speed[1] != 0:
+        
+
 
 
 class Block(GameObject):
