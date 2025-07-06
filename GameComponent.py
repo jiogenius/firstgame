@@ -43,13 +43,19 @@ class Entity(GameObject):
             self.speed[1] = 0
         if type(self.assets[self.assetNumber]) == animation.Animation:
             self.assets[self.assetNumber].frame()
+        self.AI()
         
     def AI(self):
         pass
+    
     def set_current_animation(self, assetNumber):
         self.assetNumber = assetNumber
-        
 
+    def get_current_image(self):
+        if type(self.assets[self.assetNumber]) == animation.Animation:
+            return self.assets[self.assetNumber].get_current_image()
+        else:
+            return self.assets[self.assetNumber]
 class Block(GameObject):
     pass
 
