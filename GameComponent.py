@@ -8,7 +8,6 @@ class GameObject:
     def __init__(self,Pos):
         self.Pos = Pos
         self.default_image = pygame.image.load(os.path.join(assetPath, "test.png"))
-        self.speed = [0,0]
 
     def setPos(self,Pos):
         self.Pos = Pos
@@ -16,9 +15,18 @@ class GameObject:
     def move(self,Pos):
         self.Pos = [self.Pos[0]+Pos[0],self.Pos[1]+Pos[1]]
 
+    def frame(self):
+        pass
 
 class Entity(GameObject):
-    pass
+    def __init__(self, Pos):
+        super().__init__(Pos)
+        self.speed = []
+        self.animations = []
+        self.status = [0,{}] #[0<--health,{}<-other property]
+    def frame(self):
+        self.move
+
 
 class Block(GameObject):
     pass
