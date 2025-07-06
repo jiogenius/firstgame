@@ -28,9 +28,8 @@ class Entity(GameObject):
         friction = 0
         self.move(self.speed)
         if self.speed[0] != 0 or self.speed[1] != 0:
+            pass
         
-
-
 
 class Block(GameObject):
     pass
