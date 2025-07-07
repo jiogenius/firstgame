@@ -23,3 +23,5 @@ class Setting:
     def set(self, key, value):
         self.settings[key] = value
         self.save()
+
+setting = Setting(os.path.dirname(os.path.abspath(__file__)))
