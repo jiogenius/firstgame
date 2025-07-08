@@ -11,7 +11,6 @@ def load():
         print(f'preloading image:', i["name"])
         if i["type"] == 1:  # 일반 이미지
             imageManager.imagemanager.preload_general_image(i["path"], i["name"])
-    imageManager.imagemanager.preload_general_image("test.png", "test")
-    imageManager.imagemanager.preload_animation_image("test2.png", 128,"test2")
-    imageManager.imagemanager.preload_animation_image("image.png", 128, "image")
+        elif i["type"] == 2:  # 애니메이션 이미지
+            imageManager.imagemanager.preload_animation_image(i["path"], i["height"], i["name"])
     print(f'images loaded in {time.time() - image_loading_start:.2f} seconds')
