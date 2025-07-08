@@ -5,6 +5,7 @@ import GameComponent
 import graphic
 import animation
 import load_function
+import setting
 
 pygame.init()
 
@@ -24,33 +25,34 @@ test2 = animation.Animation("image", 128, 10) # 두번째 애니메이션 객체
 
 def main():
     global running, screen, assetPath, clock ,FPS
-#    zoom = 1.0  # 줌 비율 (1.0 = 100%)
-#    zoom_step = 0.1 # 줌 단계 (0.1 = 10% 증가/감소)
+    zoom_step = setting.setting.get("cameraSetting")["zoomStep"]  # 줌 단계 설정
     while running:
         for event in pygame.event.get(): # 이벤트 처리
             if event.type == pygame.QUIT: # 창 닫기 이벤트
                 running = False
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_w:
-                    cam.move([0,10])
-                if event.key == pygame.K_s:
                     cam.move([0,-10])
+                if event.key == pygame.K_s:
+                    cam.move([0,10])
                 if event.key == pygame.K_d:
-                    cam.move([-10,0])
+                    cam.move([10,0])
                 if event.key == pygame.K_a:
-                   cam.move([10,0])
-#            elif event.type == pygame.MOUSEWHEEL:
-#                if event.y > 0:
-#                    zoom += zoom_step
-#                elif event.y < 0 and zoom > zoom_step:
-#                    zoom -= zoom_step
+                   cam.move([-10,0])
+            elif event.type == pygame.MOUSEWHEEL:
+                if event.y > 0:
+                    cam.Zoom(zoom_step)
+                elif event.y < 0:
+                    cam.Zoom(-zoom_step)
 
-        screen.fill((255,255,255)) # 화면 초기화
+        cam.surface.fill((255,255,255)) # 화면 초기화
 
-        cam.draw(screen, test2)
+        cam.draw(test)
         test.next()
         test2.next()
 
+        cam.drawToScreen(screen) # 카메라 서페이스를 스크린에 그리기
+        print(f"x:{cam.Rect.x} y:{cam.Rect.y} zoom:{cam.zoom} width:{cam.Rect.width} height:{cam.Rect.height}")
         pygame.display.flip()
 
         # FPS 고정
