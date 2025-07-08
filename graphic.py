@@ -20,7 +20,7 @@ class cam:
         surface.blit(toDraw, (DrawPos[0],DrawPos[1]))
 
     def draw(self, screen, object):
-        if type(object)==animation.animation:
+        if type(object)==animation.Animation:
             self.draw_image(screen, object.get_current_image(), [0,0])
         #if type(object)==GameComponent.Entity:
             #TODO:Entity클레스 만들기

@@ -24,7 +24,7 @@ class Entity(GameObject):
         super().__init__(Pos)
         self.speed = []
         self.assets = [] #animation and image
-        self.status = [0,{}] #[0<--health,{}<-other property]
+        self.status = {} #{}<-other property
         self.assetNumber = 0
     def frame(self):
         friction = 0

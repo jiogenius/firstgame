@@ -1,6 +1,6 @@
 import pygame
 import imageManager
-class animation:
+class Animation:
     def __init__(self,image,height,interval):
         self.interval=interval
         self.cin=0 #cin:current image number

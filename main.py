@@ -19,8 +19,8 @@ Blocks = [GameComponent.GameObject([0,0])] #블록 리스트
 clock = pygame.time.Clock() # 클럭 정의
 FPS = 60  # 고정할 FPS 값
 load_function.load() # 에셋 로드
-test = animation.animation("test2",128,10) # 애니메이션 객체 생성
-test2 = animation.animation("image",128,10) # 두번째 애니메이션 객체 생성
+test = animation.Animation("test2", 128, 10) # 애니메이션 객체 생성
+test2 = animation.Animation("image", 128, 10) # 두번째 애니메이션 객체 생성
 
 def main():
     global running, screen, assetPath, clock ,FPS
