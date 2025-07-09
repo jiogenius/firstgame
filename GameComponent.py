@@ -6,21 +6,21 @@ mainFolderPath = os.path.dirname(os.path.abspath(__file__))
 assetPath=os.path.join(mainFolderPath,"asset")
 
 class GameObject:
-    def __init__(self,Pos):
+    def __init__(self,Pos: list | tuple):
         self.Pos = Pos
         self.defaultImage = pygame.image.load(os.path.join(assetPath, "test.png"))
 
-    def setPos(self,Pos):
+    def setPos(self,Pos: list | tuple):
         self.Pos = Pos
 
-    def move(self,Pos):
+    def move(self,Pos: list | tuple):
         self.Pos = [self.Pos[0]+Pos[0],self.Pos[1]+Pos[1]]
 
     def frame(self):
         pass
 
 class Entity(GameObject):
-    def __init__(self, Pos):
+    def __init__(self, Pos:list | tuple):
         super().__init__(Pos)
         self.speed = []
         self.assets = [] #animation and image
@@ -48,7 +48,7 @@ class Entity(GameObject):
     def AI(self):
         pass
     
-    def set_current_animation(self, assetNumber):
+    def set_current_animation(self, assetNumber: int):
         self.assetNumber = assetNumber
 
     def get_current_image(self):
