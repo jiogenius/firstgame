@@ -55,6 +55,7 @@ def main():
         cam.draw_image(test.get_current_image(), [5000, 5000]) # 애니메이션 이미지 그리기
         cam.draw_image(pygame.font.SysFont("malgungothic", 36).render(str(clock.get_fps()), True, (0, 0, 0)), [5000, 5000]) # 텍스트 이미지 그리기
         cam.draw(testEntity)
+        testEntity.frame()
         #print(f"Time taken to draw image: {time.time() - a:.9f} seconds")
         test.next()
         cam.drawToScreen(screen) # 카메라 서페이스를 스크린에 그리기
