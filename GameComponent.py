@@ -1,6 +1,7 @@
 import pygame
 import os
 import animation
+import imageManager
 
 mainFolderPath = os.path.dirname(os.path.abspath(__file__))
 assetPath=os.path.join(mainFolderPath,"asset")
@@ -52,10 +53,10 @@ class Entity(GameObject):
         self.assetNumber = assetNumber
 
     def get_current_image(self):
-        if type(self.assets[self.assetNumber]) == animation.Animation:
-            return self.assets[self.assetNumber].get_current_image()
+        if type(imageManager.imagemanager.get_image(self.assets[self.assetNumber])) == animation.Animation:
+            return imageManager.imagemanager.get_image(self.assets[self.assetNumber]).get_current_image()
         else:
-            return self.assets[self.assetNumber]
+            return imageManager.imagemanager.get_image(self.assets[self.assetNumber])
 class Block(GameObject):
     pass
 

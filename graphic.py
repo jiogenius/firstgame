@@ -6,7 +6,7 @@ import setting
 import os
 class cam:
     def __init__(self, Pos :list | tuple):
-        self.Rect = pygame.Rect(4500, 4600, 1600, 900)
+        self.Rect = pygame.Rect(4200, 4550, 1600, 900)
         self.min_zoom = setting.setting.get("cameraSetting")["minZoom"]
         self.max_zoom = setting.setting.get("cameraSetting")["maxZoom"]
         self.base_width = 1600
@@ -18,7 +18,6 @@ class cam:
         self.surfacePos = Pos
 
     def move(self, Pos: list | tuple):
-        self.surface.fill((255, 255, 255))
         self.surfacePos[0] += Pos[0]
         self.surfacePos[1] += Pos[1]
 
@@ -33,7 +32,7 @@ class cam:
     def draw(self, object):
         if issubclass(type(object), animation.Animation):
             self.draw_image(object.get_current_image(), [0,0])
-        elif issubclass(type(object), GameComponent.GameObject):
+        elif issubclass(type(object), GameComponent.Entity):
             self.draw_image(object.get_current_image(), object.Pos)
         else:
             raise TypeError
@@ -44,10 +43,10 @@ class cam:
         self.zoom = max(self.min_zoom, min(self.max_zoom, self.zoom))
         self.Rect.width = int(self.base_width / self.zoom)
         self.Rect.height = int(self.base_height / self.zoom)
-
-    def drawToScreen(self,screen):
         self.Rect.x = int((10000-self.Rect.width) // 2)
         self.Rect.y = int((10000-self.Rect.height) // 2)
+
+    def drawToScreen(self,screen):
         cuttedSurface = self.surface.subsurface(self.Rect)
         scaledSurface = pygame.transform.scale(cuttedSurface, screen.get_size())
         screen.blit(scaledSurface, (0, 0))
