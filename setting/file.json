@@ -1,4 +1,5 @@
 [
   {"name":"playerSetting","path":"entityPlayer.json"},
-  {"name": "ImageLoad", "path":"ImageLoad.json"}
+  {"name": "ImageLoad", "path":"ImageLoad.json"},
+  {"name": "cameraSetting", "path":"cameraSetting.json"}
 ]
