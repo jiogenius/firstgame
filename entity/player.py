@@ -6,7 +6,7 @@ import pygame
 class Player(GameComponent.Entity):
     def __init__(self, Pos: list | tuple):
         super().__init__(Pos)
-        self.assets = [animation.Animation("entity/player/walkingDown", 10), animation.Animation("entity/player/walkingUp", 10), "entity/player/idle"]  # Animation and idle image
+        self.assets = [animation.Animation("entity/player/walkingDown", 10)]  # Animation and idle image
         self.friction = setting.setting.get("playerSetting")["friction"]
         self.mexSpeed = setting.setting.get("playerSetting")["maxSpeed"]
 
