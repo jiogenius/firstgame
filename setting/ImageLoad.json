@@ -1,0 +1,5 @@
+[
+  {"path": "test.png", "type" :  1, "name": "test"},
+  {"path": "test2.png", "type" :  2, "height": 128, "name": "test2"},
+  {"path": "image.png", "type": 2, "height": 128 , "name": "image"}
+]
