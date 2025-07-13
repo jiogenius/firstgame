@@ -6,13 +6,14 @@ import setting
 import os
 class cam:
     def __init__(self, Pos :list | tuple):
+        # Initialize camera position and settings
         self.Rect = pygame.Rect(4200, 4550, 1600, 900)
-        self.min_zoom = setting.setting.get("cameraSetting")["minZoom"]
-        self.max_zoom = setting.setting.get("cameraSetting")["maxZoom"]
-        self.base_width = 1600
+        self.min_zoom = setting.setting.get("cameraSetting")["minZoom"] # Minimum zoom level
+        self.max_zoom = setting.setting.get("cameraSetting")["maxZoom"] # Maximum zoom level
+        self.base_width = 1600 #Default base size of the camera view
         self.base_height = 900
         self.surface = pygame.Surface((10000, 10000))  # Assuming a large surface for the camera view
-        self.surfacePos = Pos
+        self.surfacePos = Pos # Camera position in the world
         self.zoom = 1.0  # Default zoom level
     def setPos(self, Pos: list | tuple):
         self.surfacePos = Pos
