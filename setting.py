@@ -4,10 +4,10 @@ import utility_functions
 
 class Setting:
     def __init__(self, mainFolderPath):
-        self.setting_path = os.path.join(mainFolderPath, "setting/")
+        self.setting_path = os.path.join(mainFolderPath, "setting")
         self.settings = {}
-        file_json = utility_functions.easy_jsonLoad(os.path.join(self.setting_path, "file.json"))
-        print("Loading settings from:", self.setting_path, "file.json:" , type(file_json))
+        file_json = utility_functions.easy_jsonLoad(self.setting_path+"/file.json")
+        print("Loading settings from:", self.setting_path, "file.json:", type(file_json))
         for item in file_json:
             print("Loading setting item:", item)
             item_path = os.path.join(self.setting_path, item.get("path", ""))
@@ -24,4 +24,4 @@ class Setting:
         self.settings[key] = value
         self.save()
 
-setting = Setting(os.path.dirname(os.path.abspath(__file__)))
+setting = Setting(os.path.dirname(__file__))
