@@ -8,6 +8,7 @@ import animation
 import load_function
 import setting
 import entity.testEntity
+import entity.player
 
 pygame.init()
 
@@ -25,7 +26,8 @@ test = animation.Animation("test2", 10) # 애니메이션 객체 생성
 #test2 = animation.Animation("image", 128, 10) # 두번째 애니메이션 객체 생성
 surface = pygame.Surface((8000, 5000))
 surface.fill((255, 255, 255))# 큰 서페이스 생성
-testEntity = entity.testEntity.testEntity([5100, 5000]) # 테스트 엔티티 생성
+testEntity = entity.player
+
 
 def main():
     global running, screen, assetPath, clock ,FPS

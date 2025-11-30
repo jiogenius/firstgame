@@ -28,7 +28,7 @@ class Entity(GameObject):
         self.status = {} #{}<-other property
         self.assetNumber = 0# Current asset number
         self.friction = 0#  # Friction applied to the entity's speed
-        self.mexSpeed = 1000 # Maximum speed of the entity
+        self.maxSpeed = 1000 # Maximum speed of the entity
     def frame(self):
         self.AI()# AI function to control the entity's behavior
         #print(f"speed {self.speed}")
@@ -76,11 +76,14 @@ class Entity(GameObject):
         elif speed[1] < 0:
             self.speed[1] = self.speed[1] + speed[1] - self.friction
         # Limit the speed to the maximum speed
-        self.speed[0] = max(-self.mexSpeed, min(self.mexSpeed, self.speed[0]))
-        self.speed[1] = max(-self.mexSpeed, min(self.mexSpeed, self.speed[1]))
+        self.speed[0] = max(-self.maxSpeed, min(self.maxSpeed, self.speed[0]))
+        self.speed[1] = max(-self.maxSpeed, min(self.maxSpeed, self.speed[1]))
         #print(f"push speed {self.speed} Pos {self.Pos} friction {self.friction}")
 class Block(GameObject):
-    pass
+    def __init__(self, Pos: list | tuple):
+        super().__init__(Pos)
+        self.asset = ""
+
 
 class Item:
     def __init__(self, asset: str|animation.Animation, amount: int):
