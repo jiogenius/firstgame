@@ -31,9 +31,11 @@ class cam:
         else:
             self.surface.blit(toDraw, DrawPos)
     def draw(self, object):
-        if issubclass(type(object), animation.Animation):
+        if isinstance(object, animation.Animation):
             self.draw_image(object.get_current_image(), [0,0])
-        elif issubclass(type(object), GameComponent.Entity):
+        elif isinstance(object, GameComponent.Entity):
+            print(object.Pos)
+            print(object.get_current_image())
             self.draw_image(object.get_current_image(), object.Pos)
         else:
             raise TypeError

@@ -1,4 +1,3 @@
-import pygame
 import imageManager
 class Animation:
     def __init__(self,image,interval):

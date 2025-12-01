@@ -7,7 +7,6 @@ import graphic
 import animation
 import load_function
 import setting
-import entity.testEntity
 import entity.player
 
 pygame.init()
@@ -26,7 +25,7 @@ test = animation.Animation("test2", 10) # 애니메이션 객체 생성
 #test2 = animation.Animation("image", 128, 10) # 두번째 애니메이션 객체 생성
 surface = pygame.Surface((8000, 5000))
 surface.fill((255, 255, 255))# 큰 서페이스 생성
-testEntity = entity.player
+testEntity = entity.player.Player([0,0])
 
 
 def main():
@@ -54,10 +53,11 @@ def main():
         a = time.time()
         cam.surface.blit(surface,(1000, 2500))
         #print(f"Time taken to get key input: {time.time() - a:.9f} seconds")
-        cam.draw_image(test.get_current_image(), [5000, 5000]) # 애니메이션 이미지 그리기
-        cam.draw_image(pygame.font.SysFont("malgungothic", 36).render(str(clock.get_fps()), True, (0, 0, 0)), [5000, 5000]) # 텍스트 이미지 그리기
-        cam.draw(testEntity)
+        #cam.draw_image(test.get_current_image(), [5000, 5000]) # 애니메이션 이미지 그리기
+        #cam.draw_image(pygame.font.SysFont("malgungothic", 36).render(str(clock.get_fps()), True, (0, 0, 0)), [5000, 5000]) # 텍스트 이미지 그리기
+
         testEntity.frame()
+        cam.draw(testEntity)
         #print(f"Time taken to draw image: {time.time() - a:.9f} seconds")
         test.next()
         cam.drawToScreen(screen) # 카메라 서페이스를 스크린에 그리기

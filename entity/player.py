@@ -6,10 +6,11 @@ import pygame
 class Player(GameComponent.Entity):
     def __init__(self, Pos: list | tuple):
         super().__init__(Pos)
-        self.assets = [animation.Animation("entity/player/walkingDown", 10)]  # Animation and idle image
+        self.assets = [animation.Animation("image", 10)]  # Animation and idle image
         self.friction = setting.setting.get("playerSetting")["friction"]
         self.maxSpeed = setting.setting.get("playerSetting")["maxSpeed"]
         self.acceleration = setting.setting.get("playerSetting")["acceleration"]
+
 
     def AI(self):
         if pygame.key.get_pressed()[pygame.K_UP]:
@@ -20,6 +21,6 @@ class Player(GameComponent.Entity):
             self.push([self.acceleration, 0])
         if pygame.key.get_pressed()[pygame.K_LEFT]:
             self.push([-self.acceleration, 0])
+
     def frame(self):
         super().frame()
-        print(self.speed)
